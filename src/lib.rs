@@ -1,3 +1,4 @@
+/// Trait for getting the arity of a value. You shouldn't need to impl this yourself.
 pub trait Arity {
     /// Gets the arity of the type.
     ///
