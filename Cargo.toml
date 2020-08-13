@@ -3,8 +3,9 @@ name = "tuple-arity"
 description = "Get the arity (number of elements) of tuple types with 0-12 elements"
 keywords = ["tuple", "tuples", "arity", "generic", "trait"]
 repository = "https://github.com/TheBerkin/tuple-arity"
+readme = "README.md"
 license = "MIT"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Nicholas Fleck <TheBerkin@users.noreply.github.com>"]
 edition = "2018"
 
