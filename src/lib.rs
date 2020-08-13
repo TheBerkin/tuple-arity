@@ -27,7 +27,6 @@ macro_rules! impl_tuple_arity {
 }
 
 /// Gets the arity of the specified value.
-/// If the value isn't a tuple, the function will return 1.
 ///
 /// # Example
 /// ```rust
