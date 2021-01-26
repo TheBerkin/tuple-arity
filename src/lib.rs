@@ -6,22 +6,41 @@ pub trait Arity {
     /// ```rust
     /// use tuple_arity::Arity;
     /// 
+    /// assert_eq!(0, <()>::ARITY);
+    /// assert_eq!(1, <(u8,)>::ARITY);
+    /// assert_eq!(2, <(u8, u8)>::ARITY);
+    /// assert_eq!(3, <(u8, u8, u8)>::ARITY);
+    /// assert_eq!(4, <(u8, u8, u8, u8)>::ARITY);
+    /// ```
+    const ARITY: usize;
+
+
+    /// Gets the arity of the type.
+    ///
+    /// Example
+    /// ```rust
+    /// use tuple_arity::Arity;
+    /// 
     /// assert_eq!(0, <()>::arity());
     /// assert_eq!(1, <(u8,)>::arity());
     /// assert_eq!(2, <(u8, u8)>::arity());
     /// assert_eq!(3, <(u8, u8, u8)>::arity());
     /// assert_eq!(4, <(u8, u8, u8, u8)>::arity());
     /// ```
-    fn arity() -> usize;
+    #[deprecated(
+        since = "0.1.3",
+        note = "Use the associated constant `ARITY` instead",
+    )]
+    #[inline(always)]
+    fn arity() -> usize {
+        Self::ARITY
+    }
 }
 
 macro_rules! impl_tuple_arity {
     ($len:expr, $($tuple_arg:ident),*) => {
         impl<$($tuple_arg,)*> Arity for ($($tuple_arg,)*) {
-            #[inline(always)]
-            fn arity() -> usize {
-                $len
-            }
+            const ARITY: usize = $len;
         }
     }
 }
@@ -38,7 +57,7 @@ macro_rules! impl_tuple_arity {
 /// ```
 #[inline(always)]
 pub fn tuple_arity<T: Arity>(_: &T) -> usize {
-    T::arity()
+    T::ARITY
 }
 
 

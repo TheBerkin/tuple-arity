@@ -23,9 +23,9 @@ You can also use the `Arity` trait to get the arity of a tuple type directly:
 ```rust
 use tuple_arity::Arity;
 
-assert_eq!(0, <()>::arity());
-assert_eq!(1, <(u8,)>::arity());
-assert_eq!(2, <(u8, u8)>::arity());
-assert_eq!(3, <(u8, u8, u8)>::arity());
-assert_eq!(4, <(u8, u8, u8, u8)>::arity());
+assert_eq!(0, <()>::ARITY);
+assert_eq!(1, <(u8,)>::ARITY);
+assert_eq!(2, <(u8, u8)>::ARITY);
+assert_eq!(3, <(u8, u8, u8)>::ARITY);
+assert_eq!(4, <(u8, u8, u8, u8)>::ARITY);
 ```
